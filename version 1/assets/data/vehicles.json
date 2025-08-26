@@ -1,0 +1,5 @@
+[
+  { "id": "sedan", "name": "Executive Sedan", "capacity": 3, "price": 45 },
+  { "id": "suv", "name": "Luxury SUV", "capacity": 5, "price": 70 },
+  { "id": "van", "name": "Business Van", "capacity": 7, "price": 85 }
+]

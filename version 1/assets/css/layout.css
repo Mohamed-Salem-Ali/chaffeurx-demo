@@ -1,0 +1,112 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #111827;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav a {
+  color: #fff;
+}
+
+.nav a.active {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.hero {
+  background: url('../img/hero1.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.highlights {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.highlights .grid {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  flex: 1;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.testimonials {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: #f3f4f6;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.slide {
+  display: none;
+  padding: 1rem;
+  font-style: italic;
+}
+
+.slide.active {
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.carousel-btn.prev { left: 1rem; }
+.carousel-btn.next { right: 1rem; }
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+  background: #111827;
+  color: #fff;
+}
+.footer-links {
+  margin-top: 0.5rem;
+}
+.footer-links a {
+  margin: 0 0.5rem;
+  color: var(--color-accent);
+}

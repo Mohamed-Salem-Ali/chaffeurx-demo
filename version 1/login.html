@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Sign Up - ChauffeurX</title>
+    <link rel="stylesheet" href="assets/css/base.css"/>
+    <link rel="stylesheet" href="assets/css/layout.css"/>
+    <link rel="stylesheet" href="assets/css/components.css"/>
+    <link rel="stylesheet" href="assets/css/utilities.css"/>
+    <link rel="stylesheet" href="assets/css/dark.css"/>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/booking.js"></script>
+    <script defer src="assets/js/auth.js"></script>
+    </head>
+    <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">ChauffeurX</div>
+        <nav class="nav" id="nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html" class="active">Booking</a></li>
+            <li><a href="chauffeurs.html">For Chauffeurs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login/Sign Up</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+        </nav>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+    </header>
+
+  <main class="content content-narrow">
+    <section class="page-hero">
+      <h1>Login / Sign Up</h1>
+      <p>A secure and user-friendly authentication system allowing Users and Chauffeurs to register, log in, and manage their access.</p>
+    </section>
+
+    <div class="grid-2 gap auth-forms">
+      <form id="login-form" class="card" novalidate>
+        <h2>Login</h2>
+        <label>Email <input type="email" id="login-email" required></label>
+        <label>Password
+          <div class="password-wrap">
+            <input type="password" id="login-pass" required>
+            <button class="link" type="button" id="toggle-login-pass">Show</button>
+          </div>
+        </label>
+        <label>Role
+          <select id="login-role">
+            <option value="user">User</option>
+            <option value="chauffeur">Chauffeur</option>
+          </select>
+        </label>
+        <label class="inline"><input type="checkbox" id="remember"> Remember me</label>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+
+      <form id="signup-form" class="card" novalidate>
+        <h2>Sign Up</h2>
+        <label>Full Name <input type="text" id="su-name" required></label>
+        <label>Email <input type="email" id="su-email" required></label>
+        <label>Password
+          <div class="password-wrap">
+            <input type="password" id="su-pass" required>
+            <button class="link" type="button" id="toggle-su-pass">Show</button>
+          </div>
+        </label>
+        <label>Role
+          <select id="su-role">
+            <option value="user">User</option>
+            <option value="chauffeur">Chauffeur</option>
+          </select>
+        </label>
+        <button class="btn" type="submit">Create Account</button>
+      </form>
+    </div>
+
+    <div id="auth-toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 ChauffeurX. All rights reserved.</p>
+  </footer>
+</body>
+</html>

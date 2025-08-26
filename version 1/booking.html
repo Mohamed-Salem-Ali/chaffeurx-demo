@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking - ChauffeurX</title>
+  <link rel="stylesheet" href="assets/css/base.css"/>
+  <link rel="stylesheet" href="assets/css/layout.css"/>
+  <link rel="stylesheet" href="assets/css/components.css"/>
+  <link rel="stylesheet" href="assets/css/utilities.css"/>
+  <link rel="stylesheet" href="assets/css/dark.css"/>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/booking.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">ChauffeurX</div>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html" class="active">Booking</a></li>
+        <li><a href="chauffeurs.html">For Chauffeurs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html">Login/Sign Up</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </header>
+
+  <main class="content content-narrow">
+    <section class="page-hero">
+      <h1>Booking Cycle</h1>
+      <p>Enables Users To Select Ride Details, View Availability, Confirm Bookings, And Receive Real-Time Updates—Ensuring A Smooth End-To-End Reservation Experience.</p>
+    </section>
+
+    <!-- Progress -->
+    <div class="steps" aria-label="progress">
+      <div class="step active" data-step="1">Ride Details</div>
+      <div class="step" data-step="2">Availability</div>
+      <div class="step" data-step="3">Review & Payment</div>
+      <div class="step" data-step="4">Confirmation</div>
+    </div>
+
+    <form id="booking-wizard" novalidate>
+      <!-- Step 1 -->
+      <section class="wizard-step" data-step="1">
+        <div class="grid-2 gap">
+          <label>Pickup
+            <input type="text" id="pickup" placeholder="Enter pickup" required>
+          </label>
+          <label>Drop-off
+            <input type="text" id="dropoff" placeholder="Enter drop-off" required>
+          </label>
+          <label>Date
+            <input type="date" id="date" required>
+          </label>
+          <label>Time
+            <input type="time" id="time" required>
+          </label>
+          <label>Passengers
+            <input type="number" id="passengers" min="1" value="1" required>
+          </label>
+          <label>Luggage
+            <input type="number" id="luggage" min="0" value="0" required>
+          </label>
+          <label>Service Type
+            <select id="service">
+              <option value="airport">Airport</option>
+              <option value="hourly">Hourly</option>
+              <option value="intercity">Intercity</option>
+              <option value="corporate">Corporate</option>
+            </select>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" data-next>Check Availability</button>
+        </div>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="wizard-step hidden" data-step="2">
+        <div id="vehicles" class="cards-3"></div>
+        <div class="actions">
+          <button type="button" class="btn" data-back>Back</button>
+          <button type="button" class="btn btn-primary" data-next disabled id="choose-vehicle">Proceed</button>
+        </div>
+      </section>
+
+      <!-- Step 3 -->
+      <section class="wizard-step hidden" data-step="3">
+        <div class="summary" id="summary"></div>
+
+        <div class="grid-2 gap">
+          <label>Promo Code
+            <input type="text" id="promo" placeholder="e.g., SAVE10">
+          </label>
+          <button type="button" class="btn" id="apply-promo">Apply</button>
+        </div>
+
+        <fieldset class="mt">
+          <legend>Payment Method</legend>
+          <label class="inline"><input type="radio" name="pay" value="card" checked> Card</label>
+          <label class="inline"><input type="radio" name="pay" value="cash"> Cash</label>
+        </fieldset>
+
+        <fieldset class="mt">
+          <legend>Policies</legend>
+          <label class="inline"><input type="checkbox" id="agree-pp"> I accept the <a href="privacy-policy.html">PP</a></label>
+          <label class="inline"><input type="checkbox" id="agree-tou"> I accept the <a href="terms-of-use.html">ToU</a></label>
+          <label class="inline"><input type="checkbox" id="agree-cp"> I accept the <a href="cancellation-policy.html">Cancellation Policy</a></label>
+        </fieldset>
+
+        <div class="actions">
+          <button type="button" class="btn" data-back>Back</button>
+          <button type="button" class="btn btn-primary" id="confirm-btn" disabled>Confirm Booking</button>
+        </div>
+      </section>
+
+      <!-- Step 4 -->
+      <section class="wizard-step hidden center" data-step="4">
+        <h2>🎉 Booking Confirmed</h2>
+        <p id="confirm-number">Booking #</p>
+        <p><a href="profile.html" class="btn btn-primary">View in Profile</a></p>
+        <div class="ticker mt" id="status-ticker" aria-live="polite"></div>
+      </section>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 ChauffeurX. All rights reserved.</p>
+  </footer>
+</body>
+</html>

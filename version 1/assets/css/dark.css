@@ -1,0 +1,16 @@
+/* Dark theme via data-theme attribute on :root */
+:root[data-theme="dark"] {
+  --color-bg: #0b0f1a;
+  --color-text: #e5e7eb;
+  --color-accent: #5b8cff;
+  --color-gray: #9ca3af;
+}
+:root[data-theme="dark"] body { background: var(--color-bg); color: var(--color-text); }
+:root[data-theme="dark"] .header,
+:root[data-theme="dark"] .footer { background: #0a0e18; }
+:root[data-theme="dark"] .card { background: #0f1625; border-color: #1f2937; }
+:root[data-theme="dark"] input, :root[data-theme="dark"] select, :root[data-theme="dark"] textarea {
+  background: #0f1625; color: var(--color-text); border-color: #334155;
+}
+:root[data-theme="dark"] .step.active { background: #0f1b35; }
+:root[data-theme="dark"] .toast { background: #0f1625; }

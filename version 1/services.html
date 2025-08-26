@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Services - ChauffeurX</title>
+    <link rel="stylesheet" href="assets/css/base.css"/>
+    <link rel="stylesheet" href="assets/css/layout.css"/>
+    <link rel="stylesheet" href="assets/css/components.css"/>
+    <link rel="stylesheet" href="assets/css/utilities.css"/>
+    <link rel="stylesheet" href="assets/css/dark.css"/>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/booking.js"></script>
+    <script defer src="assets/js/services.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+    <div class="logo">ChauffeurX</div>
+    <nav class="nav" id="nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html" class="active">Booking</a></li>
+            <li><a href="chauffeurs.html">For Chauffeurs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login/Sign Up</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    </header>
+
+  <main class="content">
+    <section class="page-hero">
+      <h1>Our Services</h1>
+      <p>Provide Detailed Information About The Services Offered And Their Corresponding Pricing Structure.</p>
+    </section>
+
+    <section class="services-grid" id="services-list">
+      <!-- Populated by services.js from services.json -->
+    </section>
+
+    <section class="price-estimator">
+      <h2>Quick Price Estimator</h2>
+      <form id="estimator-form">
+        <label>
+          Distance (km):
+          <input type="number" id="distance" required>
+        </label>
+        <label>
+          Service Type:
+          <select id="service-type" required>
+            <option value="airport">Airport</option>
+            <option value="hourly">Hourly</option>
+            <option value="intercity">Intercity</option>
+            <option value="corporate">Corporate</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-primary">Estimate</button>
+      </form>
+      <p id="estimator-result"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 ChauffeurX. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-use.html">Terms of Use</a>
+      <a href="cancellation-policy.html">Cancellation Policy</a>
+    </div>
+  </footer>
+</body>
+</html>

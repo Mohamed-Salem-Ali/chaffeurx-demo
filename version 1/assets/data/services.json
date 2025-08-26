@@ -1,0 +1,6 @@
+[
+  { "name": "Airport Transfer", "description": "Comfortable rides to and from airports.", "price": "From $50" },
+  { "name": "Hourly Booking", "description": "Hire a chauffeur by the hour.", "price": "$20/hour" },
+  { "name": "Intercity Travel", "description": "Travel between cities in style.", "price": "From $100" },
+  { "name": "Corporate Service", "description": "Reliable rides for business executives.", "price": "Custom packages" }
+]

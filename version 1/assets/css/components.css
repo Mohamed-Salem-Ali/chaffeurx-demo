@@ -1,0 +1,54 @@
+/* Cards, buttons, forms, steps, toasts, tabs, accordions */
+.card {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.card.selectable { cursor: pointer; }
+.card.selected { outline: 2px solid var(--color-accent); }
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+}
+
+label { display: block; margin-bottom: 0.75rem; font-weight: 600; }
+label.inline { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+
+.password-wrap { display: flex; align-items: center; gap: .5rem; }
+.password-wrap input { flex: 1; }
+.link { background: none; border: none; text-decoration: underline; cursor: pointer; }
+
+.actions { margin-top: 1rem; display: flex; gap: .5rem; justify-content: flex-end; }
+.mt { margin-top: 1rem; }
+.center { text-align: center; }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; margin: 1rem 0; }
+.step { text-align: center; padding: .5rem; border: 1px dashed #d1d5db; border-radius: 6px; }
+.step.active { border-color: var(--color-accent); background: #eef2ff; }
+
+.toast {
+  position: fixed; bottom: 1rem; right: 1rem; padding: .75rem 1rem;
+  background: #111827; color: #fff; border-radius: 6px; opacity: 0; pointer-events: none;
+  transform: translateY(10px); transition: opacity .2s, transform .2s;
+}
+.toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+.tabs { display: flex; gap: .5rem; }
+.tab { padding: .5rem .75rem; border: 1px solid #d1d5db; border-radius: 6px; background: #f9fafb; cursor: pointer; }
+.tab.active { background: #eef2ff; border-color: var(--color-accent); }
+
+.list .list-item { display: flex; justify-content: space-between; padding: .75rem 0; border-bottom: 1px solid #e5e7eb; }
+
+.ticker { padding: .75rem; border: 1px dashed #d1d5db; border-radius: 6px; }
+
+.theme-toggle {
+  margin-left: .5rem;
+  background: #111827; color: #fff; border: 1px solid #374151; border-radius: 6px;
+  padding: .35rem .5rem; cursor: pointer;
+}

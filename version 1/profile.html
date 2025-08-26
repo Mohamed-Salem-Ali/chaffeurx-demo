@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile & Settings - ChauffeurX</title>
+    <link rel="stylesheet" href="assets/css/base.css"/>
+    <link rel="stylesheet" href="assets/css/layout.css"/>
+    <link rel="stylesheet" href="assets/css/components.css"/>
+    <link rel="stylesheet" href="assets/css/utilities.css"/>
+    <link rel="stylesheet" href="assets/css/dark.css"/>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/booking.js"></script>
+    <script defer src="assets/js/profile.js"></script>
+    </head>
+    <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">ChauffeurX</div>
+        <nav class="nav" id="nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html" class="active">Booking</a></li>
+            <li><a href="chauffeurs.html">For Chauffeurs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login/Sign Up</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+        </nav>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+    </header>
+
+  <main class="content content-narrow">
+    <section class="page-hero">
+      <h1>Profile & Settings</h1>
+      <p>Allows Users And Chauffeurs To View And Update Personal Information, Preferences, And Notification Settings.</p>
+    </section>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="profile">Profile</button>
+      <button class="tab" data-tab="preferences">Preferences</button>
+      <button class="tab" data-tab="notifications">Notification Settings</button>
+    </div>
+
+    <section class="tab-panel" id="tab-profile">
+      <form id="profile-form" class="card">
+        <div class="grid-2 gap">
+          <label>Full Name <input type="text" id="pf-name" required></label>
+          <label>Email <input type="email" id="pf-email" required></label>
+          <label>Phone <input type="tel" id="pf-phone"></label>
+          <label>Default Pickup <input type="text" id="pf-pickup"></label>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+      </form>
+    </section>
+
+    <section class="tab-panel hidden" id="tab-preferences">
+      <form id="pref-form" class="card">
+        <label>Theme
+          <select id="pref-theme">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <label>Language
+          <select id="pref-lang">
+            <option value="en">English</option>
+            <option value="ar">Arabic</option>
+          </select>
+        </label>
+        <button class="btn" type="submit">Save Preferences</button>
+      </form>
+    </section>
+
+    <section class="tab-panel hidden" id="tab-notifications">
+      <form id="notif-form" class="card">
+        <label class="inline"><input type="checkbox" id="nt-email"> Email Alerts</label>
+        <label class="inline"><input type="checkbox" id="nt-sms"> SMS Alerts</label>
+        <label class="inline"><input type="checkbox" id="nt-push"> Push Notifications</label>
+        <button class="btn" type="submit">Save Notifications</button>
+      </form>
+    </section>
+
+    <section class="card mt">
+      <h3>Your Bookings</h3>
+      <div id="bookings-list" class="list"></div>
+    </section>
+
+    <div id="profile-toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 ChauffeurX. All rights reserved.</p>
+  </footer>
+</body>
+</html>
