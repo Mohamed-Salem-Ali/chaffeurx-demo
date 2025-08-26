@@ -2,15 +2,41 @@
 
 let currentStep = 1;
 let bookingData = {};
+let vehiclesData = [];
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Load existing booking data if available
+    const savedData = sessionStorage.getItem('bookingData');
+    if (savedData) {
+        bookingData = JSON.parse(savedData);
+        
+        // Restore form values if user navigates back
+        Object.keys(bookingData).forEach(key => {
+            const field = document.querySelector(`[name="${key}"]`);
+            if (field) {
+                field.value = bookingData[key];
+            }
+        });
+    }
+    
     initializeBooking();
     loadStoredData();
     initializeAutocomplete();
     initializeDateTimePickers();
+    loadVehiclesData();
 });
 
-// Initialize booking flow
+// Load vehicles data on page load
+function loadVehiclesData() {
+    fetch('assets/data/vehicles.json')
+        .then(response => response.json())
+        .then(data => {
+            vehiclesData = data.vehicles;
+        })
+        .catch(error => console.error('Error loading vehicles data:', error));
+}
+
+// Initialize booking flow (keep existing code)
 function initializeBooking() {
     const form = document.getElementById('booking-form');
     const nextBtn = document.getElementById('next-step');
@@ -44,7 +70,75 @@ function initializeBooking() {
     });
 }
 
-// Load data from previous pages
+// Load available vehicles from JSON
+function loadAvailableVehicles() {
+    const vehiclesGrid = document.getElementById('vehicles-grid');
+    
+    if (vehiclesData.length > 0) {
+        // Filter vehicles based on selected service type if needed
+        const serviceType = bookingData.serviceType;
+        let filteredVehicles = vehiclesData;
+        
+        // You can add filtering logic here based on service type
+        
+        vehiclesGrid.innerHTML = filteredVehicles.map(vehicle => {
+            const basePrice = calculateVehiclePrice(vehicle);
+            return `
+                <div class="vehicle-card" data-vehicle-id="${vehicle.id}" data-price="${basePrice}" data-vehicle='${JSON.stringify(vehicle)}'>
+                    <div class="vehicle-card__image">
+                        <img src="${vehicle.image}" alt="${vehicle.name}">
+                    </div>
+                    <h3>${vehicle.name}</h3>
+                    <p>${vehicle.type} • ${vehicle.capacity.passengers} passengers • ${vehicle.capacity.luggage} bags</p>
+                    <div class="vehicle-card__features">
+                        ${vehicle.features.slice(0, 3).map(f => `<span class="vehicle-card__feature">${f}</span>`).join('')}
+                                        </div>
+                    <p class="vehicle-card__description">${vehicle.description}</p>
+                    <div class="vehicle-card__price">$${basePrice}</div>
+                </div>
+            `;
+        }).join('');
+    } else {
+        // Fallback if data hasn't loaded
+        vehiclesGrid.innerHTML = '<p>Loading vehicles...</p>';
+        // Retry loading
+        fetch('assets/data/vehicles.json')
+            .then(response => response.json())
+            .then(data => {
+                vehiclesData = data.vehicles;
+                loadAvailableVehicles(); // Retry
+            })
+            .catch(error => {
+                vehiclesGrid.innerHTML = '<p>Error loading vehicles. Please refresh the page.</p>';
+            });
+    }
+}
+
+// Calculate vehicle price based on service and vehicle type
+function calculateVehiclePrice(vehicle) {
+    const basePrice = bookingData.vehiclePrice || 100;
+    return Math.round(basePrice * vehicle.priceMultiplier);
+}
+
+// Handle vehicle selection (updated)
+function handleVehicleSelection(card) {
+    const vehicleCards = document.querySelectorAll('.vehicle-card');
+    vehicleCards.forEach(c => c.classList.remove('vehicle-card--selected'));
+    
+    card.classList.add('vehicle-card--selected');
+    
+    // Store selected vehicle data
+    const vehicleData = JSON.parse(card.dataset.vehicle);
+    bookingData.vehicleId = card.dataset.vehicleId;
+    bookingData.vehiclePrice = card.dataset.price;
+    bookingData.vehicleName = `${vehicleData.name} (${vehicleData.type})`;
+    bookingData.vehicleData = vehicleData;
+}
+
+// Rest of booking.js remains the same...
+// (Keep all existing functions like handleNextStep, validateStep, etc.)
+
+// Load stored data (keep existing code)
 function loadStoredData() {
     const estimatedPrice = sessionStorage.getItem('estimatedPrice');
     const serviceType = sessionStorage.getItem('serviceType');
@@ -58,10 +152,17 @@ function loadStoredData() {
     }
 }
 
-// Handle next step
+// Update the handleNextStep function to ensure data is saved:
 function handleNextStep() {
     if (validateStep(currentStep)) {
         saveStepData(currentStep);
+        
+        // Load saved data from session storage to ensure persistence
+        const savedData = sessionStorage.getItem('bookingData');
+        if (savedData) {
+            bookingData = JSON.parse(savedData);
+        }
+        
         currentStep++;
         showStep(currentStep);
         updateProgressBar();
@@ -81,14 +182,14 @@ function handlePrevStep() {
     updateProgressBar();
 }
 
-// Validate current step
+// Also update the validateStep function to be more specific:
 function validateStep(step) {
-    const currentStepEl = document.querySelector(`[data-step="${step}"]`);
+    const currentStepEl = document.querySelector(`.booking-step[data-step="${step}"]`);
     const requiredFields = currentStepEl.querySelectorAll('[required]');
     let isValid = true;
     
     requiredFields.forEach(field => {
-        if (!field.value.trim()) {
+        if (!field.value || field.value.trim() === '') {
             showFieldError(field, 'This field is required');
             isValid = false;
         } else {
@@ -96,22 +197,36 @@ function validateStep(step) {
         }
     });
     
+    // Special validation for step 2 (vehicle selection)
+    if (step === 2 && !bookingData.vehicleId) {
+        showToast('Please select a vehicle', 'error');
+        isValid = false;
+    }
+    
     return isValid;
 }
 
 // Save step data
 function saveStepData(step) {
-    const currentStepEl = document.querySelector(`[data-step="${step}"]`);
+    const currentStepEl = document.querySelector(`.booking-step[data-step="${step}"]`);
     const inputs = currentStepEl.querySelectorAll('input, select, textarea');
     
     inputs.forEach(input => {
         if (input.name) {
-            bookingData[input.name] = input.value;
+            // For select elements, also save the text content
+            if (input.tagName === 'SELECT' && input.selectedIndex > 0) {
+                bookingData[input.name] = input.value;
+                bookingData[input.name + 'Text'] = input.options[input.selectedIndex].text;
+            } else {
+                bookingData[input.name] = input.value;
+            }
         }
     });
     
     // Save to session storage
     sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
+    
+    console.log('Saved booking data:', bookingData); // Debug log
 }
 
 // Show specific step
@@ -154,81 +269,31 @@ function updateProgressBar() {
     });
 }
 
-// Load available vehicles
-function loadAvailableVehicles() {
-    const vehiclesGrid = document.getElementById('vehicles-grid');
-    
-    // Mock vehicles data
-    const vehicles = [
-        {
-            id: 1,
-            name: 'Mercedes E-Class',
-            type: 'Executive Sedan',
-            capacity: 4,
-            features: ['WiFi', 'Climate Control', 'Leather Seats'],
-            price: 120,
-            image: '🚗'
-        },
-        {
-            id: 2,
-            name: 'BMW 7 Series',
-            type: 'Luxury Sedan',
-            capacity: 4,
-            features: ['WiFi', 'Premium Audio', 'Privacy Glass'],
-            price: 180,
-            image: '🚙'
-        },
-        {
-            id: 3,
-            name: 'Mercedes V-Class',
-            type: 'Executive Van',
-            capacity: 7,
-            features: ['WiFi', 'Extra Luggage', 'Conference Setup'],
-            price: 250,
-            image: '🚐'
-        }
-    ];
-    
-    vehiclesGrid.innerHTML = vehicles.map(vehicle => `
-        <div class="vehicle-card" data-vehicle-id="${vehicle.id}" data-price="${vehicle.price}">
-            <div class="vehicle-card__image">${vehicle.image}</div>
-            <h3>${vehicle.name}</h3>
-            <p>${vehicle.type} • ${vehicle.capacity} passengers</p>
-            <div class="vehicle-card__features">
-                ${vehicle.features.map(f => `<span class="vehicle-card__feature">${f}</span>`).join('')}
-            </div>
-            <div class="vehicle-card__price">$${vehicle.price}</div>
-        </div>
-    `).join('');
-}
-
-// Handle vehicle selection
-function handleVehicleSelection(card) {
-    const vehicleCards = document.querySelectorAll('.vehicle-card');
-    vehicleCards.forEach(c => c.classList.remove('vehicle-card--selected'));
-    
-    card.classList.add('vehicle-card--selected');
-    
-    // Store selected vehicle data
-    bookingData.vehicleId = card.dataset.vehicleId;
-    bookingData.vehiclePrice = card.dataset.price;
-    bookingData.vehicleName = card.querySelector('h3').textContent;
-}
-
-// Show review summary
+// Update the showReviewSummary function to properly display the saved data:
 function showReviewSummary() {
     const summaryDiv = document.getElementById('trip-summary');
     const subtotalEl = document.getElementById('subtotal');
     const totalEl = document.getElementById('total');
     
+    // Ensure we have the latest data
+    const savedData = sessionStorage.getItem('bookingData');
+    if (savedData) {
+        bookingData = JSON.parse(savedData);
+    }
+    
+    // Format service type for display
+    const serviceTypeDisplay = bookingData.serviceTypeText || 
+        (bookingData.serviceType ? bookingData.serviceType.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'N/A');
+    
     summaryDiv.innerHTML = `
-        <p><strong>Service:</strong> <span>${bookingData.serviceType || 'N/A'}</span></p>
+        <p><strong>Service:</strong> <span>${serviceTypeDisplay}</span></p>
         <p><strong>Pickup:</strong> <span>${bookingData.pickup || 'N/A'}</span></p>
         <p><strong>Drop-off:</strong> <span>${bookingData.dropoff || 'N/A'}</span></p>
         <p><strong>Date:</strong> <span>${bookingData.date || 'N/A'}</span></p>
-                <p><strong>Time:</strong> <span>${bookingData.time || 'N/A'}</span></p>
+        <p><strong>Time:</strong> <span>${bookingData.time || 'N/A'}</span></p>
         <p><strong>Vehicle:</strong> <span>${bookingData.vehicleName || 'N/A'}</span></p>
-        <p><strong>Passengers:</strong> <span>${bookingData.passengers || 'N/A'}</span></p>
+        <p><strong>Passengers:</strong> <span>${bookingData.passengers || 'N/A'} passenger(s)</span></p>
+        <p><strong>Luggage:</strong> <span>${bookingData.luggage || '0'} bag(s)</span></p>
     `;
     
     const subtotal = parseFloat(bookingData.vehiclePrice) || 0;
@@ -324,10 +389,14 @@ function processBooking() {
 function showConfirmation(bookingNumber) {
     document.getElementById('booking-number').textContent = bookingNumber;
     
+    const serviceTypeDisplay = bookingData.serviceType ? 
+        bookingData.serviceType.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 
+        'N/A';
+    
     const summaryDiv = document.getElementById('confirmation-summary');
     summaryDiv.innerHTML = `
         <div class="summary-details">
-            <p><strong>Service:</strong> ${bookingData.serviceType}</p>
+            <p><strong>Service:</strong> ${serviceTypeDisplay}</p>
             <p><strong>Pickup:</strong> ${bookingData.pickup}</p>
             <p><strong>Drop-off:</strong> ${bookingData.dropoff}</p>
             <p><strong>Date & Time:</strong> ${bookingData.date} at ${bookingData.time}</p>
@@ -352,11 +421,14 @@ function startStatusTicker() {
         'Booking confirmed - Processing...',
         'Assigning your chauffeur...',
         'Chauffeur assigned - John Smith',
-        'Vehicle prepared - Mercedes E-Class',
+        'Vehicle prepared - ' + (bookingData.vehicleName || 'Premium Vehicle'),
         'Ready for your trip!'
     ];
     
     let currentStatus = 0;
+    
+    // Clear existing content
+    tickerContent.innerHTML = '';
     
     const interval = setInterval(() => {
         if (currentStatus < statuses.length) {
@@ -388,35 +460,46 @@ function initializeAutocomplete() {
         '456 Airport Road, Terminal 1',
         '789 Business Plaza, Suite 100',
         '321 Hotel Avenue, Grand Hotel',
-        '654 Shopping Center, West Mall'
+        '654 Shopping Center, West Mall',
+        '987 Tech Park, Innovation Drive',
+        '147 Medical Center, Health Boulevard',
+        '258 University Campus, College Road',
+        '369 Stadium Drive, Sports Complex',
+        '741 Convention Center, Expo Lane'
     ];
     
     function setupAutocomplete(input, suggestionsDiv) {
+        let debounceTimer;
+        
         input.addEventListener('input', function() {
-            const value = this.value.toLowerCase();
-            if (value.length < 2) {
-                suggestionsDiv.classList.remove('autocomplete-suggestions--active');
-                return;
-            }
-            
-            const matches = addresses.filter(addr => 
-                addr.toLowerCase().includes(value)
-            );
-            
-            if (matches.length > 0) {
-                suggestionsDiv.innerHTML = matches.map(addr => 
-                    `<div class="autocomplete-suggestion">${addr}</div>`
-                ).join('');
-                suggestionsDiv.classList.add('autocomplete-suggestions--active');
-            } else {
-                suggestionsDiv.classList.remove('autocomplete-suggestions--active');
-            }
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                const value = this.value.toLowerCase();
+                if (value.length < 2) {
+                    suggestionsDiv.classList.remove('autocomplete-suggestions--active');
+                    return;
+                }
+                
+                const matches = addresses.filter(addr => 
+                    addr.toLowerCase().includes(value)
+                );
+                
+                if (matches.length > 0) {
+                    suggestionsDiv.innerHTML = matches.map(addr => 
+                        `<div class="autocomplete-suggestion">${addr}</div>`
+                    ).join('');
+                    suggestionsDiv.classList.add('autocomplete-suggestions--active');
+                } else {
+                    suggestionsDiv.classList.remove('autocomplete-suggestions--active');
+                }
+            }, 300);
         });
         
         suggestionsDiv.addEventListener('click', function(e) {
             if (e.target.classList.contains('autocomplete-suggestion')) {
                 input.value = e.target.textContent;
                 suggestionsDiv.classList.remove('autocomplete-suggestions--active');
+                clearFieldError(input);
             }
         });
     }
@@ -439,6 +522,17 @@ function initializeDateTimePickers() {
         // Set minimum date to today
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
+        dateInput.value = today; // Set default to today
+    }
+    
+    if (timeInput) {
+        // Set default time to next hour
+        const now = new Date();
+        const nextHour = new Date(now);
+        nextHour.setHours(nextHour.getHours() + 1);
+        nextHour.setMinutes(0);
+        const timeString = nextHour.toTimeString().slice(0, 5);
+        timeInput.value = timeString;
     }
 }
 
@@ -473,3 +567,43 @@ document.addEventListener('click', function(e) {
         suggestions.forEach(s => s.classList.remove('autocomplete-suggestions--active'));
     }
 });
+
+// Add additional CSS for vehicle cards
+const additionalStyles = document.createElement('style');
+additionalStyles.textContent = `
+    .vehicle-card__description {
+        font-size: 0.875rem;
+        color: var(--text-light);
+        margin-top: var(--spacing-sm);
+    }
+    
+    .autocomplete-suggestions {
+        box-shadow: var(--shadow-md);
+    }
+    
+    .ticker-content {
+        max-height: 150px;
+        overflow-y: auto;
+        padding: var(--spacing-sm);
+    }
+    
+    .ticker-status {
+        display: block;
+        padding: var(--spacing-xs) 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.875rem;
+        animation: fadeIn 0.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(additionalStyles);
