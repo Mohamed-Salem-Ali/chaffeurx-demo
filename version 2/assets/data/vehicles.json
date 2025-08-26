@@ -1,0 +1,74 @@
+{
+    "vehicles": [
+        {
+        "id": 1,
+        "name": "Mercedes-Benz E-Class",
+        "type": "Executive Sedan",
+        "category": "standard",
+        "capacity": {
+            "passengers": 4,
+            "luggage": 3
+        },
+        "features": ["WiFi", "Climate Control", "Leather Seats", "USB Charging"],
+        "priceMultiplier": 1,
+        "image": "mercedes-e-class.jpg",
+        "description": "Perfect for business travel and airport transfers"
+        },
+        {
+        "id": 2,
+        "name": "BMW 7 Series",
+        "type": "Luxury Sedan",
+        "category": "executive",
+        "capacity": {
+            "passengers": 4,
+            "luggage": 3
+        },
+        "features": ["WiFi", "Premium Audio", "Privacy Glass", "Massage Seats"],
+        "priceMultiplier": 1.5,
+        "image": "bmw-7-series.jpg",
+        "description": "Ultimate luxury and comfort for discerning travelers"
+        },
+        {
+        "id": 3,
+        "name": "Mercedes-Benz S-Class",
+        "type": "Premium Luxury",
+        "category": "luxury",
+        "capacity": {
+            "passengers": 4,
+            "luggage": 3
+        },
+        "features": ["WiFi", "Champagne Bar", "Privacy Partition", "Entertainment System"],
+        "priceMultiplier": 2,
+        "image": "mercedes-s-class.jpg",
+        "description": "The pinnacle of luxury transportation"
+        },
+        {
+        "id": 4,
+        "name": "Mercedes-Benz V-Class",
+        "type": "Executive Van",
+        "category": "van",
+        "capacity": {
+            "passengers": 7,
+            "luggage": 7
+        },
+        "features": ["WiFi", "Conference Setup", "Extra Space", "Multiple Climate Zones"],
+        "priceMultiplier": 1.8,
+        "image": "mercedes-v-class.jpg",
+        "description": "Ideal for groups and families with luggage"
+        },
+        {
+        "id": 5,
+        "name": "Range Rover",
+        "type": "Luxury SUV",
+        "category": "suv",
+        "capacity": {
+            "passengers": 5,
+            "luggage": 5
+        },
+        "features": ["WiFi", "All-Terrain", "Premium Interior", "Panoramic Roof"],
+        "priceMultiplier": 1.7,
+        "image": "range-rover.jpg",
+        "description": "Luxury meets capability for any journey"
+        }
+    ]
+}

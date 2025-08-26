@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login or sign up for LuxRide">
+    <title>Login - LuxRide</title>
+    
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utilities.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo">
+                <svg width="120" height="40" viewBox="0 0 120 40" aria-label="LuxRide logo">
+                    <text x="10" y="28" font-family="system-ui" font-size="24" font-weight="bold" fill="currentColor">LuxRide</text>
+                </svg>
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
+                <li><a href="chauffeurs.html" class="nav__link">For Chauffeurs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact Us</a></li>
+                <li><a href="login.html" class="nav__link nav__link--auth nav__link--active">Login</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-toggle__icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main" class="auth-main">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="auth-tab auth-tab--active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form" id="login-form" data-form="login">
+                <h1>Welcome Back</h1>
+                
+                <div class="role-selector">
+                    <label class="role-option">
+                        <input type="radio" name="role" value="user" checked>
+                        <span>User</span>
+                    </label>
+                    <label class="role-option">
+                        <input type="radio" name="role" value="chauffeur">
+                        <span>Chauffeur</span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+                    <span class="error-message" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="login-password" name="password" required>
+                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                            <span class="password-toggle-icon">👁️</span>
+                        </button>
+                    </div>
+                    <span class="error-message" role="alert"></span>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--full">Login</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form class="auth-form" id="signup-form" data-form="signup" style="display: none;">
+                <h1>Create Account</h1>
+                
+                <div class="role-selector">
+                    <label class="role-option">
+                        <input type="radio" name="role" value="user" checked>
+                        <span>User</span>
+                    </label>
+                    <label class="role-option">
+                        <input type="radio" name="role" value="chauffeur">
+                        <span>Chauffeur</span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" name="name" required>
+                    <span class="error-message" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="email" required>
+                    <span class="error-message" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="signup-password" name="password" required>
+                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                            <span class="password-toggle-icon">👁️</span>
+                        </button>
+                    </div>
+                    <span class="help-text">At least 8 characters with uppercase, lowercase, and numbers</span>
+                    <span class="error-message" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" name="confirmPassword" required>
+                    <span class="error-message" role="alert"></span>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--full">Sign Up</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Floating CTA -->
+    <a href="booking.html" class="floating-cta" aria-label="Book a ride">
+        <span>Book a Ride</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@luxride.com">info@luxride.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 LuxRide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/auth.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+    "testimonials": [
+        {
+        "id": 1,
+        "name": "Sarah Johnson",
+        "role": "Business Executive",
+        "company": "Tech Corp",
+        "rating": 5,
+        "text": "LuxRide has transformed my business travel. Always on time, always professional. The ability to work during my commute in their comfortable vehicles has been a game-changer.",
+        "date": "2024-01-15"
+        },
+        {
+        "id": 2,
+        "name": "Michael Chen",
+        "role": "Frequent Traveler",
+        "company": "Global Consulting",
+        "rating": 5,
+        "text": "The best chauffeur service I've used. Impeccable vehicles and outstanding drivers. Their airport service is particularly impressive - they track flights and adjust pickup times automatically.",
+        "date": "2024-01-10"
+        },
+        {
+        "id": 3,
+        "name": "Emily Rodriguez",
+        "role": "Event Planner",
+        "company": "Premier Events",
+        "rating": 5,
+        "text": "My go-to for all corporate events. They never disappoint! From transporting VIP guests to coordinating multiple vehicles for large events, LuxRide handles everything seamlessly.",
+        "date": "2024-01-05"
+        },
+        {
+        "id": 4,
+        "name": "David Thompson",
+        "role": "CEO",
+        "company": "Finance Solutions",
+        "rating": 5,
+        "text": "Exceptional service that reflects well on our company. When we have important clients visiting, LuxRide ensures they experience the same level of professionalism we strive for.",
+        "date": "2023-12-28"
+        },
+        {
+        "id": 5,
+        "name": "Lisa Anderson",
+        "role": "Travel Manager",
+        "company": "International Corp",
+        "rating": 5,
+        "text": "Managing executive travel is stress-free with LuxRide. Their corporate package gives us flexibility and control while ensuring our team travels safely and comfortably.",
+        "date": "2023-12-20"
+        }
+    ]
+}

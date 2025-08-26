@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join LuxRide as a professional chauffeur - Benefits and application process">
+    <title>For Chauffeurs - LuxRide</title>
+    
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utilities.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo">
+                <svg width="120" height="40" viewBox="0 0 120 40" aria-label="LuxRide logo">
+                    <text x="10" y="28" font-family="system-ui" font-size="24" font-weight="bold" fill="currentColor">LuxRide</text>
+                </svg>
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
+                <li><a href="chauffeurs.html" class="nav__link nav__link--active">For Chauffeurs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact Us</a></li>
+                <li><a href="login.html" class="nav__link nav__link--auth">Login</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-toggle__icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Become a LuxRide Chauffeur</h1>
+                <p>Outline The Benefits Of Joining Our Family And Provide The Application Form Or Process For Enrollment.</p>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits">
+            <div class="container">
+                <h2 class="section-title">Why Join LuxRide?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">💰</div>
+                        <h3>Competitive Earnings</h3>
+                        <p>Industry-leading commission rates and performance bonuses</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">📅</div>
+                        <h3>Flexible Schedule</h3>
+                        <p>Choose your own hours and work-life balance</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">🏆</div>
+                        <h3>Premium Clientele</h3>
+                        <p>Serve distinguished clients who value professionalism</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">📚</div>
+                        <h3>Training & Support</h3>
+                        <p>Comprehensive training and 24/7 operational support</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">🛡️</div>
+                        <h3>Insurance Coverage</h3>
+                        <p>Full insurance coverage while on duty</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">🚗</div>
+                        <h3>Vehicle Support</h3>
+                        <p>Maintenance assistance and vehicle upgrade programs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements -->
+        <section class="requirements">
+            <div class="container">
+                <h2 class="section-title">Requirements</h2>
+                <div class="requirements-list">
+                    <div class="requirement-item">
+                        <span class="requirement-check">✓</span>
+                        <span>Valid driver's license with clean driving record</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-check">✓</span>
+                        <span>Minimum 3 years professional driving experience</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-check">✓</span>
+                        <span>Professional appearance and excellent communication skills</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-check">✓</span>
+                        <span>Pass background check and drug screening</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-check">✓</span>
+                        <span>Own or have access to a luxury vehicle (2019 or newer)</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-check">✓</span>
+                        <span>Smartphone with data plan for app usage</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="application-section" aria-labelledby="application-heading">
+            <div class="container">
+                <h2 id="application-heading" class="section-title">Apply Now</h2>
+                <form class="application-form" id="chauffeur-application">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input type="text" id="full-name" name="fullName" required>
+                                <span class="error-message" role="alert"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <span class="error-message" role="alert"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" role="alert"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                                <span class="error-message" role="alert"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Professional Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="vehicle-type">Vehicle Type *</label>
+                                <select id="vehicle-type" name="vehicleType" required>
+                                    <option value="">Select vehicle type</option>
+                                    <option value="sedan">Luxury Sedan</option>
+                                    <option value="suv">Luxury SUV</option>
+                                    <option value="van">Executive Van</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error-message" role="alert"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Years of Experience *</label>
+                                <input type="number" id="experience" name="experience" min="0" required>
+                                <span class="error-message" role="alert"></span>
+                            </div>
+                            <div class="form-group form-group--full">
+                                <label for="upload">Upload Documents</label>
+                                <input type="file" id="upload" name="documents" accept=".pdf,.jpg,.png" multiple>
+                                <span class="help-text">Upload driver's license, insurance, vehicle registration</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn--primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating CTA -->
+    <a href="booking.html" class="floating-cta" aria-label="Book a ride">
+        <span>Book a Ride</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@luxride.com">info@luxride.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 LuxRide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal__content">
+            <h2 id="modal-title">Application Submitted!</h2>
+            <p>Thank you for applying to become a LuxRide chauffeur. We'll review your application and contact you within 48 hours.</p>
+            <button class="btn btn--primary" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/forms.js" defer></script>
+</body>
+</html>

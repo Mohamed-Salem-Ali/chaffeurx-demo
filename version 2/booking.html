@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your luxury ride with LuxRide - Professional chauffeur service">
+    <title>Book a Ride - LuxRide</title>
+    
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utilities.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo">
+                <svg width="120" height="40" viewBox="0 0 120 40" aria-label="LuxRide logo">
+                    <text x="10" y="28" font-family="system-ui" font-size="24" font-weight="bold" fill="currentColor">LuxRide</text>
+                </svg>
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
+                <li><a href="chauffeurs.html" class="nav__link">For Chauffeurs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact Us</a></li>
+                <li><a href="login.html" class="nav__link nav__link--auth">Login</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-toggle__icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main" class="booking-main">
+        <div class="container">
+            <h1>Book Your Ride</h1>
+            <p class="booking-description">Enables Users To Select Ride Details, View Availability, Confirm Bookings, And Receive Real-Time Updates—Ensuring A Smooth End-To-End Reservation Experience.</p>
+            
+            <!-- Progress Steps -->
+            <div class="booking-progress" role="navigation" aria-label="Booking progress">
+                <div class="progress-step progress-step--active" data-step="1">
+                    <span class="progress-step__number">1</span>
+                    <span class="progress-step__label">Ride Details</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <span class="progress-step__number">2</span>
+                    <span class="progress-step__label">Availability</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <span class="progress-step__number">3</span>
+                    <span class="progress-step__label">Review & Payment</span>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <span class="progress-step__number">4</span>
+                    <span class="progress-step__label">Confirmation</span>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <form class="booking-form" id="booking-form">
+                <!-- Step 1: Ride Details -->
+                <div class="booking-step booking-step--active" data-step="1">
+                    <h2>Ride Details</h2>
+                    <div class="form-grid">
+                        <div class="form-group form-group--full">
+                            <label for="pickup">Pickup Location *</label>
+                            <input type="text" id="pickup" name="pickup" placeholder="Enter pickup address" required>
+                            <div class="autocomplete-suggestions" id="pickup-suggestions"></div>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+                        <div class="form-group form-group--full">
+                            <label for="dropoff">Drop-off Location *</label>
+                            <input type="text" id="dropoff" name="dropoff" placeholder="Enter destination" required>
+                            <div class="autocomplete-suggestions" id="dropoff-suggestions"></div>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" name="date" required>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time *</label>
+                            <input type="time" id="time" name="time" required>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers">Number of Passengers *</label>
+                            <select id="passengers" name="passengers" required>
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5+">5+ Passengers</option>
+                            </select>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="luggage">Luggage</label>
+                            <select id="luggage" name="luggage">
+                                <option value="0">No luggage</option>
+                                <option value="1">1 bag</option>
+                                <option value="2">2 bags</option>
+                                <option value="3">3 bags</option>
+                                <option value="4+">4+ bags</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group--full">
+                            <label for="service-type-booking">Service Type *</label>
+                            <select id="service-type-booking" name="serviceType" required>
+                                <option value="">Select service</option>
+                                <option value="airport">Airport Transfer</option>
+                                <option value="hourly">Hourly Chauffeur</option>
+                                <option value="intercity">Intercity Travel</option>
+                                <option value="corporate">Corporate Package</option>
+                            </select>
+                            <span class="error-message" role="alert"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Availability -->
+                <div class="booking-step" data-step="2" style="display: none;">
+                    <h2>Available Vehicles</h2>
+                    <div class="vehicles-grid" id="vehicles-grid">
+                        <!-- Vehicles will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Step 3: Review & Payment -->
+                <div class="booking-step" data-step="3" style="display: none;">
+                    <h2>Review & Payment</h2>
+                    <div class="booking-review">
+                        <div class="review-section">
+                            <h3>Trip Summary</h3>
+                            <div class="summary-details" id="trip-summary">
+                                <!-- Summary will be populated dynamically -->
+                            </div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Promo Code</h3>
+                            <div class="promo-code-wrapper">
+                                <input type="text" id="promo-code" placeholder="Enter promo code">
+                                <button type="button" class="btn btn--secondary" id="apply-promo">Apply</button>
+                            </div>
+                            <div class="promo-message" id="promo-message"></div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Payment Method</h3>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="card" checked>
+                                    <span>Credit/Debit Card</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="paypal">
+                                    <span>PayPal</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="corporate">
+                                    <span>Corporate Account</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Total Price</h3>
+                            <div class="total-price">
+                                <span>Subtotal:</span> <span id="subtotal">$0</span><br>
+                                <span>Discount:</span> <span id="discount">$0</span><br>
+                                <strong>Total:</strong> <strong id="total">$0</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="terms-agreement">
+                            <label>
+                                <input type="checkbox" id="accept-terms" required>
+                                I accept the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, 
+                                <a href="terms-of-use.html" target="_blank">Terms of Use</a>, and 
+                                <a href="cancellation-policy.html" target="_blank">Cancellation Policy</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Confirmation -->
+                <div class="booking-step" data-step="4" style="display: none;">
+                    <div class="confirmation-wrapper">
+                        <div class="confirmation-icon">✅</div>
+                        <h2>Booking Confirmed!</h2>
+                        <p>Your ride has been successfully booked.</p>
+                        
+                        <div class="confirmation-details">
+                            <div class="booking-number">
+                                <strong>Booking Number:</strong> 
+                                <span id="booking-number">LUX-123456</span>
+                            </div>
+                            
+                            <div class="confirmation-summary" id="confirmation-summary">
+                                <!-- Summary will be populated -->
+                            </div>
+                            
+                            <div class="action-buttons">
+                                <a href="profile.html" class="btn btn--primary">View in Profile</a>
+                                <a href="index.html" class="btn btn--secondary">Back to Home</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Real-time status ticker -->
+                        <div class="status-ticker" id="status-ticker">
+                            <h3>Live Updates</h3>
+                            <div class="ticker-content">
+                                <span class="ticker-status">Booking confirmed - Processing...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="booking-navigation">
+                    <button type="button" class="btn btn--secondary" id="prev-step" style="display: none;">Back</button>
+                    <button type="button" class="btn btn--primary" id="next-step">Next</button>
+                    <button type="submit" class="btn btn--primary" id="submit-booking" style="display: none;">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- No floating CTA on booking page -->
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@luxride.com">info@luxride.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 LuxRide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/booking.js" defer></script>
+</body>
+</html>

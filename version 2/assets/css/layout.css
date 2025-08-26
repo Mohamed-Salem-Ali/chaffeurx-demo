@@ -1,0 +1,354 @@
+/* Layout CSS - Page structure and layout components */
+
+/* Main layout structure */
+main {
+    flex: 1;
+    margin-top: 4rem; /* Account for fixed header */
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    transition: box-shadow var(--transition-base);
+}
+
+.header--scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    gap: var(--spacing-lg);
+}
+
+.nav__link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    color: var(--accent-color);
+    background-color: var(--bg-secondary);
+}
+
+.nav__link--active {
+    color: var(--accent-color);
+}
+
+.nav__link--auth {
+    background-color: var(--accent-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.nav__link--auth:hover,
+.nav__link--auth:focus {
+    background-color: #1d4ed8;
+    color: white;
+}
+
+/* Mobile menu toggle */
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+}
+
+.nav__toggle-bar {
+    width: 24px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all var(--transition-fast);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-2xl) 0 var(--spacing-xl);
+    margin-top: var(--spacing-3xl);
+}
+
+.footer__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.footer__section h4 {
+    color: white;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer__section ul {
+    list-style: none;
+    margin: 0;
+}
+
+.footer__section a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer__section a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+}
+
+/* Social links */
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+/* Page sections */
+.hero {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-3xl) 0;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-hero {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-hero h1 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.page-hero p {
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* Grid layouts */
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.grid--2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid--3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Form layouts */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.form-group--full {
+    grid-column: 1 / -1;
+}
+
+.form-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    justify-content: flex-end;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .nav__menu {
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        padding: var(--spacing-lg);
+        border-bottom: 1px solid var(--border-color);
+        transform: translateX(-100%);
+        transition: transform var(--transition-base);
+    }
+    
+    .nav__menu--open {
+        transform: translateX(0);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .nav__toggle {
+        display: flex;
+    }
+    
+    .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .hero__title {
+        font-size: 2rem;
+    }
+    
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Content blocks */
+.content-block {
+    padding: var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+}
+
+/* Sections spacing */
+section {
+    padding: var(--spacing-2xl) 0;
+}
+
+/* Policy pages layout */
+.policy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+.policy-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.policy-date {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-top: var(--spacing-sm);
+}
+
+/* Authentication pages */
+.auth-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 8rem);
+    padding: var(--spacing-xl);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--bg-color);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Profile pages */
+.profile-main {
+    padding: var(--spacing-2xl) 0;
+}
+
+.profile-content {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+/* Booking pages */
+.booking-main {
+    padding: var(--spacing-2xl) 0;
+}
+
+.booking-form {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.booking-step {
+    display: none;
+}
+
+.booking-step--active {
+    display: block;
+}

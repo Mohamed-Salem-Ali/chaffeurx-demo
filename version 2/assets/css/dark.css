@@ -1,0 +1,229 @@
+/* Dark mode styles */
+[data-theme="dark"] {
+    --text-color: #f3f4f6;
+    --text-light: #9ca3af;
+    --bg-color: #111827;
+    --bg-secondary: #1f2937;
+    --border-color: #374151;
+    
+    /* Keep accent colors bright in dark mode */
+    --accent-color: #3b82f6;
+    --error-color: #f87171;
+    --success-color: #34d399;
+}
+
+[data-theme="dark"] body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .header {
+    background-color: #0f172a;
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .nav__logo {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .nav__link {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .nav__link:hover {
+    color: var(--text-color);
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .nav__link--active {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .footer {
+    background-color: #0f172a;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .modal__content,
+[data-theme="dark"] .auth-container {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] table th {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .hero,
+[data-theme="dark"] .page-hero,
+[data-theme="dark"] .testimonials,
+[data-theme="dark"] .mission-vision,
+[data-theme="dark"] .benefits,
+[data-theme="dark"] .application-section,
+[data-theme="dark"] .price-estimator,
+[data-theme="dark"] .jump-nav {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .content-block,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .quick-link,
+[data-theme="dark"] .requirements-list,
+[data-theme="dark"] .booking-form,
+[data-theme="dark"] .profile-content,
+[data-theme="dark"] .example-card,
+[data-theme="dark"] .status-ticker {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .carousel__item {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .accordion {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .accordion-header:hover {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .toast {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .autocomplete-suggestions {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .autocomplete-suggestion:hover {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .vehicle-card {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .vehicle-card:hover {
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] .vehicle-card__image {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .vehicle-card__feature {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .service-card {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .person-secondary {
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .btn--secondary:hover {
+    background-color: var(--bg-color);
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] .progress-step__number {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .auth-tab--active::after,
+[data-theme="dark"] .profile-tab--active::after {
+    background-color: var(--accent-color);
+}
+
+[data-theme="dark"] .role-option span {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .role-option input:checked + span {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .payment-option {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .payment-option:hover {
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] .summary-details,
+[data-theme="dark"] .total-price,
+[data-theme="dark"] .estimator-result {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .terms-agreement {
+    background-color: rgba(251, 191, 36, 0.1);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .form-success {
+    background-color: rgba(52, 211, 153, 0.1);
+}
+
+[data-theme="dark"] .map-placeholder {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .jump-nav a {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .jump-nav a:hover {
+    background-color: var(--accent-color);
+}
+
+[data-theme="dark"] .booking-number {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .application-form {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .editable-field input {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .estimator-widget {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .policy-content code {
+    background-color: var(--bg-secondary);
+    color: var(--accent-color);
+}
+
+/* Dark mode theme toggle icon */
+[data-theme="dark"] .theme-toggle__icon::before {
+    content: '☀️';
+}
+
+.theme-toggle__icon::before {
+    content: '🌙';
+}
