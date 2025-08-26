@@ -100,6 +100,7 @@
                         <div class="form-group">
                             <label for="passengers">Number of Passengers *</label>
                             <select id="passengers" name="passengers" required>
+                                <option value="">Select passengers</option>
                                 <option value="1">1 Passenger</option>
                                 <option value="2">2 Passengers</option>
                                 <option value="3">3 Passengers</option>
@@ -122,15 +123,36 @@
                             <label for="service-type-booking">Service Type *</label>
                             <select id="service-type-booking" name="serviceType" required>
                                 <option value="">Select service</option>
-                                <option value="airport">Airport Transfer</option>
-                                <option value="hourly">Hourly Chauffeur</option>
-                                <option value="intercity">Intercity Travel</option>
-                                <option value="corporate">Corporate Package</option>
                             </select>
                             <span class="error-message" role="alert"></span>
                         </div>
                     </div>
                 </div>
+                <script>
+                // Populate service dropdown on page load
+                document.addEventListener('DOMContentLoaded', function() {
+                    fetch('assets/data/services.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const serviceSelect = document.getElementById('service-type-booking');
+                            if (serviceSelect && serviceSelect.options.length === 1) { // Only default option exists
+                                data.services.forEach(service => {
+                                    const option = document.createElement('option');
+                                    option.value = service.name.toLowerCase().replace(/\s+/g, '-');
+                                    option.textContent = service.name;
+                                    serviceSelect.appendChild(option);
+                                });
+                                
+                                // Set value from session storage if available
+                                const storedServiceType = sessionStorage.getItem('serviceType');
+                                if (storedServiceType) {
+                                                        serviceSelect.value = storedServiceType;
+                                            }
+                                        }
+                                    })
+                                    .catch(error => console.error('Error loading services:', error));
+                            });
+                            </script>
 
                 <!-- Step 2: Availability -->
                 <div class="booking-step" data-step="2" style="display: none;">
