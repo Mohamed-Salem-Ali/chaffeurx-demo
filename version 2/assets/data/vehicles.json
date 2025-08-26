@@ -1,60 +1,60 @@
 {
     "vehicles": [
-        {
+            {
         "id": 1,
-        "name": "Mercedes-Benz E-Class",
-        "type": "Executive Sedan",
+        "name": "Mercedes-Benz A-Class",
+        "type": "Compact Sedan",
         "category": "standard",
         "capacity": {
             "passengers": 4,
-            "luggage": 3
+            "luggage": 2
         },
-        "features": ["WiFi", "Climate Control", "Leather Seats", "USB Charging"],
+        "features": ["WiFi", "Climate Control", "USB Charging"],
         "priceMultiplier": 1,
-        "image": "mercedes-e-class.jpg",
-        "description": "Perfect for business travel and airport transfers"
+        "image": "assets/imgs/vehicles/mercedes-a-class.png",
+        "description": "Stylish compact sedan ideal for city transfers"
         },
         {
         "id": 2,
-        "name": "BMW 7 Series",
-        "type": "Luxury Sedan",
+        "name": "Mercedes V-Class",
+        "type": "Executive Van",
+        "category": "van",
+        "capacity": {
+            "passengers": 7,
+            "luggage": 6
+        },
+        "features": ["WiFi", "Conference Setup", "Extra Space"],
+        "priceMultiplier": 1.6,
+        "image": "assets/imgs/vehicles/mercedes-v-class.png",
+        "description": "Spacious and comfortable for groups or families"
+        },
+        {
+        "id": 3,
+        "name": "Mercedes-Benz C 300",
+        "type": "Executive Sedan",
         "category": "executive",
         "capacity": {
             "passengers": 4,
             "luggage": 3
         },
-        "features": ["WiFi", "Premium Audio", "Privacy Glass", "Massage Seats"],
-        "priceMultiplier": 1.5,
-        "image": "bmw-7-series.jpg",
-        "description": "Ultimate luxury and comfort for discerning travelers"
-        },
-        {
-        "id": 3,
-        "name": "Mercedes-Benz S-Class",
-        "type": "Premium Luxury",
-        "category": "luxury",
-        "capacity": {
-            "passengers": 4,
-            "luggage": 3
-        },
-        "features": ["WiFi", "Champagne Bar", "Privacy Partition", "Entertainment System"],
-        "priceMultiplier": 2,
-        "image": "mercedes-s-class.jpg",
-        "description": "The pinnacle of luxury transportation"
+        "features": ["WiFi", "Leather Seats", "Premium Audio"],
+        "priceMultiplier": 1.3,
+        "image": "assets/imgs/vehicles/mercedes-c300.png",
+        "description": "Executive sedan combining performance and comfort"
         },
         {
         "id": 4,
-        "name": "Mercedes-Benz V-Class",
-        "type": "Executive Van",
-        "category": "van",
+        "name": "Mercedes-Benz G-Class",
+        "type": "Luxury SUV",
+        "category": "suv",
         "capacity": {
-            "passengers": 7,
-            "luggage": 7
+            "passengers": 5,
+            "luggage": 4
         },
-        "features": ["WiFi", "Conference Setup", "Extra Space", "Multiple Climate Zones"],
-        "priceMultiplier": 1.8,
-        "image": "mercedes-v-class.jpg",
-        "description": "Ideal for groups and families with luggage"
+        "features": ["WiFi", "All-Terrain", "Premium Interior"],
+        "priceMultiplier": 2,
+        "image": "assets/imgs/vehicles/mercedes-g-class.png",
+        "description": "Iconic SUV that blends luxury with off-road capability"
         },
         {
         "id": 5,
@@ -67,7 +67,7 @@
         },
         "features": ["WiFi", "All-Terrain", "Premium Interior", "Panoramic Roof"],
         "priceMultiplier": 1.7,
-        "image": "range-rover.jpg",
+        "image": "assets/imgs/vehicles//range-rover.png",
         "description": "Luxury meets capability for any journey"
         }
     ]
