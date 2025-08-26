@@ -1,9 +1,16 @@
 // Auth JavaScript - Authentication handling
 
+const validationPatterns = {
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // simple email regex
+    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/ // min 8 chars, 1 upper, 1 lower, 1 number
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeAuthForms();
     initializePasswordToggles();
 });
+
+
 
 // Initialize auth forms
 function initializeAuthForms() {
@@ -148,13 +155,16 @@ async function handleSignup(e) {
 function mockLogin(email, password, role) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            // Simple validation
-            if (email && password.length >= 8) {
+            const demoUsers = {
+                "test@gmail.com": "Test1234",
+                "driver@luxride.com": "Driver1234"
+            };
+            if (demoUsers[email] && demoUsers[email] === password) {
                 resolve({ success: true });
             } else {
                 reject(new Error('Invalid email or password'));
             }
-        }, 1500);
+        }, 1000);
     });
 }
 
@@ -162,14 +172,15 @@ function mockLogin(email, password, role) {
 function mockSignup(name, email, password, role) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            // Check if user already exists (mock)
-            const existingUsers = ['user@example.com', 'driver@example.com'];
-            if (existingUsers.includes(email)) {
+            let users = JSON.parse(localStorage.getItem('luxrideUsers') || "{}");
+            if (users[email]) {
                 reject(new Error('Email already registered'));
             } else {
+                users[email] = { name, email, password, role };
+                localStorage.setItem('luxrideUsers', JSON.stringify(users));
                 resolve({ success: true });
             }
-        }, 1500);
+        }, 1000);
     });
 }
 
