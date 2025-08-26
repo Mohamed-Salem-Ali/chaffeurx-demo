@@ -1223,3 +1223,29 @@ input[type="file"] {
     padding: var(--spacing-3xl) 0;
     background-color: var(--bg-secondary);
 }
+
+/* Better vehicle card styling */
+.vehicle-card__image svg {
+    width: 100%;
+    height: auto;
+}
+.vehicle-card__image img {
+    width: 70%;
+    height: 100%;
+ /* keep aspect ratio, crop if needed */
+}
+/* Vehicle icon based on type */
+/* .vehicle-card[data-vehicle*="Sedan"] .vehicle-card__image::before {
+    content: '🚗';
+    font-size: 3rem;
+}
+
+.vehicle-card[data-vehicle*="SUV"] .vehicle-card__image::before {
+    content: '🚙';
+    font-size: 3rem;
+}
+
+.vehicle-card[data-vehicle*="Van"] .vehicle-card__image::before {
+    content: '🚐';
+    font-size: 3rem;
+} */

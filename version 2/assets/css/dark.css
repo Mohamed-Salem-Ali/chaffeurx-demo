@@ -218,12 +218,3 @@
     background-color: var(--bg-secondary);
     color: var(--accent-color);
 }
-
-/* Dark mode theme toggle icon */
-[data-theme="dark"] .theme-toggle__icon::before {
-    content: '☀️';
-}
-
-.theme-toggle__icon::before {
-    content: '🌙';
-}
