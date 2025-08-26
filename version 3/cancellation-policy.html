@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LuxRide Cancellation Policy - Terms and conditions for canceling bookings">
+    <title>Cancellation Policy - LuxRide</title>
+    
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utilities.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo">
+                <svg width="120" height="40" viewBox="0 0 120 40" aria-label="LuxRide logo">
+                    <text x="10" y="28" font-family="system-ui" font-size="24" font-weight="bold" fill="currentColor">LuxRide</text>
+                </svg>
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
+                <li><a href="chauffeurs.html" class="nav__link">For Chauffeurs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact Us</a></li>
+                <li><a href="login.html" class="nav__link nav__link--auth">Login</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-toggle__icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Cancellation Policy</h1>
+                <p>Clearly Outlines The Terms And Conditions For Canceling Bookings, Including Applicable Fees And Timelines To Ensure Fairness For Both Users And Chauffeurs.</p>
+                <p class="policy-date">Last updated: January 1, 2024</p>
+            </div>
+        </section>
+
+        <!-- Cancellation Policy Content -->
+        <section class="policy-content">
+            <div class="container">
+                <!-- Fees Table -->
+                <section class="policy-section">
+                    <h2>Cancellation Fees</h2>
+                    <div class="table-wrapper">
+                        <table class="fees-table">
+                            <thead>
+                                <tr>
+                                    <th>Time Before Pickup</th>
+                                    <th>Cancellation Fee</th>
+                                    <th>Refund Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>More than 24 hours</td>
+                                    <td>No fee</td>
+                                    <td>100% refund</td>
+                                </tr>
+                                <tr>
+                                    <td>12-24 hours</td>
+                                    <td>10% of booking total</td>
+                                    <td>90% refund</td>
+                                </tr>
+                                <tr>
+                                    <td>6-12 hours</td>
+                                    <td>25% of booking total</td>
+                                    <td>75% refund</td>
+                                </tr>
+                                <tr>
+                                    <td>2-6 hours</td>
+                                    <td>50% of booking total</td>
+                                    <td>50% refund</td>
+                                </tr>
+                                <tr>
+                                    <td>Less than 2 hours</td>
+                                    <td>100% of booking total</td>
+                                    <td>No refund</td>
+                                </tr>
+                                <tr>
+                                    <td>No show</td>
+                                    <td>100% of booking total</td>
+                                    <td>No refund</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Examples -->
+                <section class="policy-section">
+                    <h2>Examples</h2>
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <h3>Example 1: Early Cancellation</h3>
+                            <p><strong>Scenario:</strong> You booked a ride for Saturday at 3:00 PM. You cancel on Thursday at 5:00 PM.</p>
+                            <p><strong>Time before pickup:</strong> More than 24 hours</p>
+                            <p><strong>Fee:</strong> No cancellation fee</p>
+                            <p><strong>Result:</strong> Full refund processed</p>
+                        </div>
+                        <div class="example-card">
+                            <h3>Example 2: Same-Day Cancellation</h3>
+                            <p><strong>Scenario:</strong> Your ride is scheduled for 8:00 PM. You cancel at 3:00 PM the same day.</p>
+                            <p><strong>Time before pickup:</strong> 5 hours</p>
+                            <p><strong>Fee:</strong> 50% of booking total</p>
+                            <p><strong>Result:</strong> 50% refund processed</p>
+                        </div>
+                        <div class="example-card">
+                            <h3>Example 3: Last-Minute Cancellation</h3>
+                            <p><strong>Scenario:</strong> Your ride is at 10:00 AM. You cancel at 9:00 AM.</p>
+                            <p><strong>Time before pickup:</strong> 1 hour</p>
+                            <p><strong>Fee:</strong> 100% of booking total</p>
+                            <p><strong>Result:</strong> No refund</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQs -->
+                <section class="policy-section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="accordion" id="cancellation-faqs">
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="faq-1">
+                                <h3>How do I cancel a booking?</h3>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content" id="faq-1" hidden>
+                                <p>You can cancel your booking through:</p>
+                                <ul>
+                                    <li>Your account dashboard on our website</li>
+                                    <li>Calling our customer service at +1 (234) 567-890</li>
+                                    <li>Using the cancellation link in your booking confirmation email</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="faq-2">
+                                <h3>When will I receive my refund?</h3>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content" id="faq-2" hidden>
+                                <p>Refunds are processed within 5-7 business days. The time it takes to appear in your account depends on your payment method and financial institution.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="faq-3">
+                                <h3>Can I modify my booking instead of canceling?</h3>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content" id="faq-3" hidden>
+                                <p>Yes, you can modify your booking up to 12 hours before the scheduled pickup time without any fees. Modifications within 12 hours may incur charges based on availability.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="faq-4">
+                                <h3>What if my chauffeur cancels?</h3>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content" id="faq-4" hidden>
+                                <p>If a chauffeur cancels your booking, you will receive a full refund immediately. We will also help you find an alternative chauffeur if needed.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="faq-5">
+                                <h3>Are there exceptions to the cancellation policy?</h3>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-content" id="faq-5" hidden>
+                                <p>We may waive cancellation fees in cases of:</p>
+                                <ul>
+                                    <li>Medical emergencies (with documentation)</li>
+                                    <li>Severe weather conditions affecting safety</li>
+                                    <li>Flight cancellations (with proof)</li>
+                                    <li>Other extraordinary circumstances at our discretion</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Additional Terms -->
+                <section class="policy-section">
+                    <h2>Additional Terms</h2>
+                    <ul>
+                        <li>All cancellation times are calculated based on the scheduled pickup time</li>
+                        <li>Corporate accounts may have different cancellation policies as per their agreements</li>
+                        <li>Recurring bookings must be canceled individually</li>
+                        <li>Promotional bookings may have special cancellation terms</li>
+                        <li>This policy applies to all service types unless otherwise specified</li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating CTA -->
+    <a href="booking.html" class="floating-cta" aria-label="Book a ride">
+        <span>Book a Ride</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@luxride.com">info@luxride.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 LuxRide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

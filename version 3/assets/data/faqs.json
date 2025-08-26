@@ -1,0 +1,52 @@
+{
+    "faqs": [
+        {
+        "id": 1,
+        "category": "booking",
+        "question": "How far in advance should I book?",
+        "answer": "We recommend booking at least 24 hours in advance for regular services. For airport transfers, 48 hours notice ensures availability. However, we do accommodate last-minute bookings based on availability."
+        },
+        {
+        "id": 2,
+        "category": "booking",
+        "question": "Can I make recurring bookings?",
+        "answer": "Yes! Our corporate clients often set up recurring bookings for regular routes. Contact our customer service team to arrange weekly or monthly recurring reservations."
+        },
+        {
+        "id": 3,
+        "category": "payment",
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards, debit cards, PayPal, and corporate accounts. Payment is processed securely at the time of booking, with receipts sent via email."
+        },
+        {
+        "id": 4,
+        "category": "service",
+        "question": "What's included in the airport transfer service?",
+        "answer": "Airport transfers include flight tracking, 60 minutes free waiting time for international flights (45 minutes for domestic), meet & greet service, and luggage assistance."
+        },
+        {
+        "id": 5,
+        "category": "service",
+        "question": "Can I request a specific chauffeur?",
+        "answer": "Yes, regular clients can request their preferred chauffeurs. We'll do our best to accommodate based on availability. Build relationships with our professional chauffeurs for a personalized experience."
+        },
+        {
+        "id": 6,
+        "category": "vehicles",
+        "question": "Are child seats available?",
+        "answer": "Yes, we provide child seats at no extra charge. Please specify the age and number of children when booking so we can ensure appropriate safety seats are installed."
+        },
+        {
+        "id": 7,
+        "category": "cancellation",
+        "question": "What if my flight is delayed?",
+        "answer": "Don't worry! We track all flights in real-time and adjust pickup times accordingly. There's no additional charge for flight delays. Your chauffeur will be there when you land."
+        },
+        {
+        "id": 8,
+        "category": "corporate",
+        "question": "How do corporate accounts work?",
+        "answer": "Corporate accounts enjoy monthly billing, dedicated account management, priority booking, and detailed reporting. Contact our corporate team to discuss custom packages for your business needs."
+        }
+    ]
+}

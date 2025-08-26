@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about LuxRide's mission, vision, and commitment to premium transportation">
+    <title>About Us - LuxRide</title>
+    
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utilities.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+<body>
+    <!-- Header (same as index) -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo">
+                <svg width="120" height="40" viewBox="0 0 120 40" aria-label="LuxRide logo">
+                    <text x="10" y="28" font-family="system-ui" font-size="24" font-weight="bold" fill="currentColor">LuxRide</text>
+                </svg>
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="about.html" class="nav__link nav__link--active">About</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
+                <li><a href="chauffeurs.html" class="nav__link">For Chauffeurs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact Us</a></li>
+                <li><a href="login.html" class="nav__link nav__link--auth">Login</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-toggle__icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>About LuxRide</h1>
+                <p>Provides Information About The Website, Its Purpose, Mission, And The Services Or Products It Offers.</p>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="mission-vision">
+            <div class="container">
+                <div class="grid grid--2">
+                    <div class="content-block">
+                        <h2>Our Mission</h2>
+                        <p>To redefine luxury transportation by providing unparalleled chauffeur services that combine safety, punctuality, and exceptional customer experience.</p>
+                    </div>
+                    <div class="content-block">
+                        <h2>Our Vision</h2>
+                        <p>To become the global leader in premium transportation, setting new standards for service excellence and innovation in the chauffeur industry.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="timeline" aria-labelledby="timeline-heading">
+            <div class="container">
+                <h2 id="timeline-heading" class="section-title">Our Journey</h2>
+                <div class="timeline__container">
+                    <div class="timeline__item">
+                        <div class="timeline__year">2020</div>
+                        <div class="timeline__content">
+                            <h3>Founded</h3>
+                            <p>LuxRide begins with a fleet of 10 premium vehicles</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__year">2021</div>
+                        <div class="timeline__content">
+                            <h3>Expansion</h3>
+                            <p>Grew to 50+ chauffeurs across 5 major cities</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__year">2022</div>
+                        <div class="timeline__content">
+                            <h3>Innovation</h3>
+                            <p>Launched real-time tracking and mobile app</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__year">2023</div>
+                        <div class="timeline__content">
+                            <h3>Excellence</h3>
+                            <p>Achieved 98% customer satisfaction rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats" aria-labelledby="stats-heading">
+            <div class="container">
+                <h2 id="stats-heading" class="visually-hidden">Company Statistics</h2>
+                <div class="stats__grid">
+                    <div class="stat-card">
+                        <div class="stat-card__number" data-count="500000">0</div>
+                        <div class="stat-card__label">Happy Customers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__number" data-count="150">0</div>
+                        <div class="stat-card__label">Professional Chauffeurs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__number" data-count="200">0</div>
+                        <div class="stat-card__label">Luxury Vehicles</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__number" data-count="15">0</div>
+                        <div class="stat-card__label">Cities Served</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating CTA -->
+    <a href="booking.html" class="floating-cta" aria-label="Book a ride">
+        <span>Book a Ride</span>
+    </a>
+
+    <!-- Footer (same as index) -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@luxride.com">info@luxride.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 LuxRide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

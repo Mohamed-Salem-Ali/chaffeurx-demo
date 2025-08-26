@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your LuxRide profile and settings">
+    <title>Profile - LuxRide</title>
+    
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utilities.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav__logo">
+                <svg width="120" height="40" viewBox="0 0 120 40" aria-label="LuxRide logo">
+                    <text x="10" y="28" font-family="system-ui" font-size="24" font-weight="bold" fill="currentColor">LuxRide</text>
+                </svg>
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
+                <li><a href="chauffeurs.html" class="nav__link">For Chauffeurs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact Us</a></li>
+                <li><a href="#" class="nav__link nav__link--auth" id="logout-link">Logout</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-toggle__icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main" class="profile-main">
+        <div class="container">
+            <h1>My Account</h1>
+            
+            <!-- Profile Tabs -->
+            <div class="profile-tabs" role="tablist">
+                <button class="profile-tab profile-tab--active" role="tab" aria-selected="true" aria-controls="profile-panel" id="profile-tab">
+                    Profile
+                </button>
+                <button class="profile-tab" role="tab" aria-selected="false" aria-controls="preferences-panel" id="preferences-tab">
+                    Preferences
+                </button>
+                <button class="profile-tab" role="tab" aria-selected="false" aria-controls="notifications-panel" id="notifications-tab">
+                    Notification Settings
+                </button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="profile-content">
+                <!-- Profile Panel -->
+                <div class="tab-panel tab-panel--active" role="tabpanel" id="profile-panel" aria-labelledby="profile-tab">
+                    <h2>Profile Information</h2>
+                    
+                    <!-- User Profile -->
+                    <div class="profile-section" id="user-profile">
+                        <form class="profile-form" id="profile-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="profile-name">Full Name</label>
+                                    <div class="editable-field">
+                                        <input type="text" id="profile-name" name="name" value="John Doe" readonly>
+                                        <button type="button" class="edit-btn" aria-label="Edit name">✏️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <div class="editable-field">
+                                        <input type="email" id="profile-email" name="email" value="john@example.com" readonly>
+                                        <button type="button" class="edit-btn" aria-label="Edit email">✏️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-phone">Phone</label>
+                                    <div class="editable-field">
+                                        <input type="tel" id="profile-phone" name="phone" value="+1 234 567 8900" readonly>
+                                        <button type="button" class="edit-btn" aria-label="Edit phone">✏️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-pickup">Default Pickup Location</label>
+                                    <div class="editable-field">
+                                        <input type="text" id="default-pickup" name="defaultPickup" placeholder="Set default pickup" readonly>
+                                        <button type="button" class="edit-btn" aria-label="Edit pickup location">✏️</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Chauffeur Profile (hidden by default) -->
+                    <div class="profile-section" id="chauffeur-profile" style="display: none;">
+                        <form class="profile-form" id="chauffeur-profile-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="chauffeur-name">Full Name</label>
+                                    <div class="editable-field">
+                                        <input type="text" id="chauffeur-name" name="name" value="" readonly>
+                                        <button type="button" class="edit-btn" aria-label="Edit name">✏️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vehicle-info">Vehicle Information</label>
+                                    <div class="editable-field">
+                                        <input type="text" id="vehicle-info" name="vehicleInfo" value="" placeholder="Make, Model, Year" readonly>
+                                        <button type="button" class="edit-btn" aria-label="Edit vehicle info">✏️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="license-number">License Number</label>
+                                    <div class="editable-field">
+                                        <input type="text" id="license-number" name="licenseNumber" value="****1234" readonly>
+                                        <span class="help-text">Partially hidden for security</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="availability">Availability Status</label>
+                                    <div class="toggle-wrapper">
+                                        <label class="toggle">
+                                            <input type="checkbox" id="availability" name="availability">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                        <span class="toggle-label">Available for rides</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button type="button" class="btn btn--primary" id="save-profile">Save Changes</button>
+                </div>
+
+                <!-- Preferences Panel -->
+                <div class="tab-panel" role="tabpanel" id="preferences-panel" aria-labelledby="preferences-tab" style="display: none;">
+                    <h2>Preferences</h2>
+                    <form class="preferences-form">
+                        <div class="preference-item">
+                            <label for="language">Preferred Language</label>
+                            <select id="language" name="language">
+                                <option value="en" selected>English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                            </select>
+                        </div>
+                        <div class="preference-item">
+                            <label for="currency">Preferred Currency</label>
+                            <select id="currency" name="currency">
+                                <option value="usd" selected>USD ($)</option>
+                                <option value="eur">EUR (€)</option>
+                                <option value="gbp">GBP (£)</option>
+                            </select>
+                        </div>
+                        <div class="preference-item">
+                            <label for="vehicle-preference">Preferred Vehicle Type</label>
+                            <select id="vehicle-preference" name="vehiclePreference">
+                                <option value="any">Any</option>
+                                <option value="sedan">Sedan</option>
+                                <option value="suv">SUV</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn--primary" id="save-preferences">Save Preferences</button>
+                    </form>
+                </div>
+
+                <!-- Notifications Panel -->
+                <div class="tab-panel" role="tabpanel" id="notifications-panel" aria-labelledby="notifications-tab" style="display: none;">
+                    <h2>Notification Settings</h2>
+                    <form class="notifications-form">
+                        <div class="notification-group">
+                            <h3>Email Notifications</h3>
+                            <label class="notification-toggle">
+                                <input type="checkbox" name="emailBooking" checked>
+                                <span>Booking confirmations</span>
+                            </label>
+                            <label class="notification-toggle">
+                                <input type="checkbox" name="emailReminders" checked>
+                                <span>Trip reminders</span>
+                            </label>
+                            <label class="notification-toggle">
+                                <input type="checkbox" name="emailPromotions">
+                                <span>Promotions and offers</span>
+                            </label>
+                        </div>
+                        <div class="notification-group">
+                            <h3>SMS Notifications</h3>
+                            <label class="notification-toggle">
+                                <input type="checkbox" name="smsBooking" checked>
+                                <span>Booking confirmations</span>
+                            </label>
+                            <label class="notification-toggle">
+                                <input type="checkbox" name="smsReminders" checked>
+                                <span>Trip reminders (1 hour before)</span>
+                            </label>
+                            <label class="notification-toggle">
+                                <input type="checkbox" name="smsArrival" checked>
+                                <span>Chauffeur arrival alerts</span>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn--primary" id="save-notifications">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating CTA -->
+    <a href="booking.html" class="floating-cta" aria-label="Book a ride">
+        <span>Book a Ride</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@luxride.com">info@luxride.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 LuxRide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/profile.js" defer></script>
+</body>
+</html>

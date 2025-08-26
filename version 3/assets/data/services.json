@@ -1,0 +1,60 @@
+{
+    "services": [
+        {
+        "id": 1,
+        "name": "Airport Transfer",
+        "description": "Reliable pickup and drop-off service to all major airports. Track your chauffeur in real-time and never miss a flight.",
+        "icon": "✈️",
+        "basePrice": 50,
+        "priceUnit": "per trip",
+        "features": [
+            "Flight tracking",
+            "Meet & greet service",
+            "Free waiting time",
+            "Luggage assistance"
+        ]
+        },
+        {
+        "id": 2,
+        "name": "Hourly Chauffeur",
+        "description": "Flexible hourly service perfect for multiple stops, meetings, or city tours. Your chauffeur waits while you work.",
+        "icon": "🕐",
+        "basePrice": 80,
+        "priceUnit": "per hour",
+        "features": [
+            "Minimum 2 hours",
+            "Unlimited stops",
+            "Waiting included",
+            "Flexible routing"
+        ]
+        },
+        {
+        "id": 3,
+        "name": "Intercity Travel",
+        "description": "Comfortable long-distance travel between cities. Enjoy a relaxing journey with our professional chauffeurs.",
+        "icon": "🏙️",
+        "basePrice": 1.5,
+        "priceUnit": "per mile",
+        "features": [
+            "Long distance comfort",
+            "Refreshments provided",
+            "Multiple pickup points",
+            "Luggage capacity"
+        ]
+        },
+        {
+        "id": 4,
+        "name": "Corporate Package",
+        "description": "Tailored transportation solutions for businesses. Impress clients and ensure executives travel in style.",
+        "icon": "💼",
+        "basePrice": 0,
+        "priceUnit": "Custom pricing",
+        "features": [
+            "Dedicated account manager",
+            "Monthly billing",
+            "Priority booking",
+            "Multiple user accounts"
+        ]
+        }
+    ]
+}
