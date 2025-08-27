@@ -277,23 +277,26 @@ function loadServices() {
         .then(data => {
             const grid = document.getElementById('services-grid');
             grid.innerHTML = data.services.map(service => `
-                <div class="service-card">
-                    <div class="service-card__icon">${service.icon}</div>
+            <div class="service-card">
+                <div class="service-card__image">
+                    <img src="${service.image}" alt="${service.name}" loading="lazy">
+                </div>
+                <div class="service-card__content">
                     <h3>${service.name}</h3>
                     <p>${service.description}</p>
                     <ul class="service-card__features">
                         ${service.features.map(feature => `<li>${feature}</li>`).join('')}
-                                        </ul>
+                    </ul>
                     <div class="service-card__price">
                         ${service.basePrice ? `From $${service.basePrice}` : service.priceUnit} 
                         ${service.priceUnit !== 'Custom pricing' && service.basePrice ? `/${service.priceUnit}` : ''}
                     </div>
                 </div>
-            `).join('');
+            </div>
+        `).join('');
         })
         .catch(error => {
             console.error('Error loading services:', error);
-            // Fallback content
             document.getElementById('services-grid').innerHTML = '<p>Error loading services. Please refresh the page.</p>';
         });
 }
@@ -471,31 +474,61 @@ if (document.getElementById('price-estimator')) {
 }
 
 // Add CSS animation for toast
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideOut {
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
+// const style = document.createElement('style');
+// style.textContent = `
+//     @keyframes slideOut {
+//         to {
+//             transform: translateX(100%);
+//             opacity: 0;
+//         }
+//     }
     
-    .service-card__features {
-        list-style: none;
-        margin: var(--spacing-md) 0;
-        padding: 0;
-    }
+//     .service-card__features {
+//         list-style: none;
+//         margin: var(--spacing-md) 0;
+//         padding: 0;
+//     }
     
-    .service-card__features li {
-        padding: var(--spacing-xs) 0;
-        color: var(--text-light);
-        font-size: 0.875rem;
-    }
+//     .service-card__features li {
+//         padding: var(--spacing-xs) 0;
+//         color: var(--text-light);
+//         font-size: 0.875rem;
+//     }
     
-    .service-card__features li:before {
-        content: "✓ ";
-        color: var(--success-color);
-        font-weight: bold;
-    }
-`;
-document.head.appendChild(style);
+//     .service-card__features li:before {
+//         content: "✓ ";
+//         color: var(--success-color);
+//         font-weight: bold;
+//     }
+// `;
+// document.head.appendChild(style);
+
+// Highlight current section in jump navigation
+function highlightCurrentSection() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.jump-nav a');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('current');
+            if (link.getAttribute('href').slice(1) === current) {
+                link.classList.add('current');
+            }
+        });
+    });
+}
+
+// Call the function if jump-nav exists
+if (document.querySelector('.jump-nav')) {
+    highlightCurrentSection();
+}

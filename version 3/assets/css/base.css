@@ -1,4 +1,4 @@
-/* Base CSS - Luxury Theme Reset and Fundamentals */
+/* Base CSS - Luxury Dark Theme Reset and Fundamentals */
 
 /* Reset */
 *, *::before, *::after {
@@ -7,19 +7,19 @@
     padding: 0;
 }
 
-/* CSS Variables - Luxury Theme */
+/* CSS Variables - Luxury Dark Theme */
 :root {
     /* Core Colors */
-    --primary-color: #0a0a0a;      /* Deep Black */
-    --accent-color: #d4af37;      /* Royal Gold */
-    --accent-color-2: #b8860b;    /* Dark Goldenrod */
-    --text-color: #1a1a1a;        /* Luxury Dark Text */
-    --text-light: #444;           /* Muted Gray */
-    --bg-color: #ffffff;          /* Elegant White */
-    --bg-secondary: #f9f9f9;      /* Subtle Gray */
-    --border-color: #e5e5e5;      /* Light Border */
-    --error-color: #e63946;       /* Crimson */
-    --success-color: #50fa7b;     /* Neon Green */
+    --primary-color: #121212;       /* Dark gray-black for headings */
+    --accent-color: #d4af37;        /* Royal Gold */
+    --accent-color-2: #ffd700;      /* Bright Gold Highlight */
+    --text-color: #e0e0e0;          /* Platinum Text */
+    --text-light: #c0c0c0;          /* Soft Silver for secondary text */
+    --bg-color: #0f0f0f;            /* Deep charcoal for main background */
+    --bg-secondary: #1a1a1a;        /* Slightly lighter secondary background */
+    --border-color: #2a2a2a;        /* Soft border for contrast */
+    --error-color: #e63946;         /* Crimson for errors */
+    --success-color: #50fa7b;       /* Neon green for success */
 
     /* Typography */
     --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -41,24 +41,13 @@
     --radius-lg: 0.75rem;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.25);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
 
     /* Transitions */
     --transition-fast: 150ms ease-in-out;
     --transition-base: 300ms ease-in-out;
-}
-
-/* Dark Mode Override */
-[data-theme="dark"] {
-    --text-color: #e5e5e5;        /* Platinum Text */
-    --text-light: #c0c0c0;        /* Soft Silver */
-    --bg-color: #111111;          /* Charcoal */
-    --bg-secondary: #1a1a1a;      /* Dark Gray */
-    --border-color: #2e2e2e;      /* Dark Border */
-    --accent-color: #d4af37;      /* Keep Royal Gold */
-    --accent-color-2: #b8860b;
 }
 
 /* Base Styles */
@@ -83,8 +72,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
-    color: var(--primary-color);
-    letter-spacing: -0.02em;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
 }
 
 h1 { font-size: 2.5rem; }
@@ -94,10 +83,11 @@ h4 { font-size: 1.25rem; }
 h5 { font-size: 1.125rem; }
 h6 { font-size: 1rem; }
 
-p {
+p, li, label {
     margin-bottom: var(--spacing-md);
     color: var(--text-light);
     font-weight: 400;
+    line-height: 1.7;
 }
 
 /* Links */
@@ -136,7 +126,7 @@ label {
     display: block;
     margin-bottom: var(--spacing-xs);
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--text-light);
 }
 
 input, select, textarea {
@@ -146,7 +136,7 @@ input, select, textarea {
     font-family: inherit;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    background-color: var(--bg-color);
+    background-color: var(--bg-secondary);
     color: var(--text-color);
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -154,7 +144,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3); /* golden glow */
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
 }
 
 input:disabled, select:disabled, textarea:disabled {
@@ -171,14 +161,15 @@ button {
     border: none;
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--radius-md);
-    background-color: var(--accent-color);
-    color: #fff;
+    background-color: var(--accent-color-2);
+    color: #121212;
     font-weight: 600;
     letter-spacing: 0.02em;
 }
 
 button:hover {
-    background-color: var(--accent-color-2); /* deeper gold */
+    background-color: var(--accent-color);
+    color: #0f0f0f;
 }
 
 /* Tables */
@@ -232,7 +223,7 @@ th {
     top: -40px;
     left: 0;
     background: var(--primary-color);
-    color: white;
+    color: var(--text-color);
     padding: var(--spacing-sm) var(--spacing-md);
     text-decoration: none;
     z-index: 100;
@@ -248,4 +239,12 @@ th {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
     h3 { font-size: 1.25rem; }
+}
+
+/* Card Icon Gradient */
+.card__icon i {
+    font-size: 2rem;
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
