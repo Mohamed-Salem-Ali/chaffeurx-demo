@@ -8,6 +8,12 @@
     <meta property="og:description" content="Experience luxury transportation with our professional chauffeur service">
     <meta property="og:type" content="website">
     <title>LuxRide - Premium Chauffeur Service</title>
+
+<link 
+  rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+  crossorigin="anonymous" 
+/>
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -50,11 +56,11 @@
                 <li><a href="chauffeurs.html" class="nav__link">For Chauffeurs</a></li>
                 <li><a href="contact.html" class="nav__link">Contact Us</a></li>
                 <li><a href="login.html" class="nav__link nav__link--auth">Login</a></li>
-                <li>
+                <!-- <li>
                     <button class="theme-toggle" aria-label="Toggle dark mode">
                         <span class="theme-toggle__icon">🌙</span>
                     </button>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </header>
@@ -88,39 +94,46 @@
             <div class="container">
                 <h2 id="highlights-heading" class="section-title">Why Choose LuxRide</h2>
                 <div class="grid grid--3">
-                    <div class="card">
-                        <div class="card__icon">🛡️</div>
-                        <h3 class="card__title">Safety First</h3>
-                        <p class="card__text">All chauffeurs are thoroughly vetted with comprehensive background checks</p>
-                    </div>
-                    <div class="card">
-                        <div class="card__icon">⏰</div>
-                        <h3 class="card__title">Always On Time</h3>
-                        <p class="card__text">Punctuality guaranteed with real-time tracking and updates</p>
-                    </div>
-                    <div class="card">
-                        <div class="card__icon">🚗</div>
-                        <h3 class="card__title">Luxury Fleet</h3>
-                        <p class="card__text">Premium vehicles maintained to the highest standards</p>
-                    </div>
-                    <div class="card">
-                        <div class="card__icon">📱</div>
-                        <h3 class="card__title">Easy Booking</h3>
-                        <p class="card__text">Seamless reservation process with instant confirmation</p>
-                    </div>
-                    <div class="card">
-                        <div class="card__icon">💼</div>
-                        <h3 class="card__title">Corporate Ready</self>
-                        <p class="card__text">Tailored solutions for business travel needs</p>
-                    </div>
-                    <div class="card">
-                        <div class="card__icon">🌟</div>
-                        <h3 class="card__title">5-Star Service</h3>
-                        <p class="card__text">Consistently rated excellent by our customers</p>
-                    </div>
+                
+                <div class="card">
+                    <div class="card__icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="card__title">Safety First</h3>
+                    <p class="card__text">All chauffeurs are thoroughly vetted with comprehensive background checks</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon"><i class="fas fa-clock"></i></div>
+                    <h3 class="card__title">Always On Time</h3>
+                    <p class="card__text">Punctuality guaranteed with real-time tracking and updates</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon"><i class="fas fa-car"></i></div>
+                    <h3 class="card__title">Luxury Fleet</h3>
+                    <p class="card__text">Premium vehicles maintained to the highest standards</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon"><i class="fas fa-mobile"></i></div>
+                    <h3 class="card__title">Easy Booking</h3>
+                    <p class="card__text">Seamless reservation process with instant confirmation</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="card__title">Corporate Ready</h3>
+                    <p class="card__text">Tailored solutions for business travel needs</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon"><i class="fas fa-star"></i></div>
+                    <h3 class="card__title">5-Star Service</h3>
+                    <p class="card__text">Consistently rated excellent by our customers</p>
+                </div>
+                
                 </div>
             </div>
-        </section>
+            </section>
 
         <!-- Testimonials -->
     <section class="testimonials testimonials--bg" aria-labelledby="testimonials-heading">
@@ -205,10 +218,10 @@
                 <div class="footer__section">
                     <h4>Connect</h4>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer__section">
@@ -218,10 +231,18 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <p>&copy; 2024 LuxRide. All rights reserved.</p>
+                <p>
+                    &copy; 2024 LuxRide. All rights reserved.
+                </p>
+                <p>
+                    Powered by <a href="https://oasistechsystems.net/" target="_blank" rel="noopener noreferrer">Oasis Systems</a>.
+                </p>
             </div>
+
         </div>
     </footer>
+
+
 
     <!-- Toast Container -->
     <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
